@@ -3,7 +3,7 @@ import json as json
 import dataclasses
 import pandas as pd
 from biblelib.word import BCVWPID, BCVID
-from greek_normalisation.utils import nfkc
+from greek_normalisation.utils import nfkc, strip_accents
 from greek_normalisation.normalise import Normaliser
 import diff_match_patch as dmp_module
 
@@ -47,6 +47,8 @@ def load_bsbgnt_lines():
             bcv = BCVWPID(cols[0])
             # create the word object
             word = Word(cols[0], cols[1], cols[2], cols[3], cols[4], cols[5], cols[6], cols[7])
+            # remove '*' and '|' from word.text
+            word.text = word.text.replace('*', '').replace('|', '')
             words[word.identifier] = word
             # create the verse object if it doesn't exist
             current_verse_id = bcv.book_ID + bcv.chapter_ID + bcv.verse_ID
@@ -92,8 +94,9 @@ def load_sblgnt_lines():
 
 def get_verse_text(verse):
     return_text = ""
+    # case-insensitive? strip accents?
     for word in verse.words:
-        return_text += verse.words[word].text + " "
+        return_text += strip_accents(verse.words[word].text) + " "
     return nfkc(return_text.rstrip().lower())
 
 # added RWB 2023-10-21 for word-level diffs
@@ -110,10 +113,13 @@ def diff_wordMode(text1, text2):
 
 # need to load in SBLGNT in a lines format
 # both bsbgnt_lines and sblgnt_lines are dict[Verse.identifier, Verse] so verses can be sorted properly
+# bsbgnt loads from the 'source' text alignment tab-delimited file
 bsbgnt_lines = load_bsbgnt_lines()
+# sblgnt loads from the Macula Greek SBLGNT tsv file
 sblgnt_lines = load_sblgnt_lines()
 
 # get keys from bsbgnt_lines and sort
+# because I don't know if dicts in python preserve order
 bsbgnt_keys = list(bsbgnt_lines.keys())
 bsbgnt_keys.sort()
 
