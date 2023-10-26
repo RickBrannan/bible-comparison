@@ -2,11 +2,17 @@
 
 Python code that uses [a customized version](https://github.com/google/diff-match-patch/wiki/Line-or-Word-Diffs) of [Google's `diff-match-patch`](https://github.com/google/diff-match-patch) to compare bible versions and determine word differences
 
-Google's diff-match-patch is used under the Apache License 2.0. 
+This was developed to compare text editions of the Greek New Testament, on a verse-by-verse basis, at the word level and determine differences.
+
+Note that the algorithm used in `diff-match-patch` essentially states the minimal set of changes to be made to the `source` text to convert it into the `compare` text.
+
+This is slightly different than variation units one finds in a standard Greek NT, where there are additions, omissions, differences, and word order differences. The output here is stated solely in terms of plusses (additions) and minuses (omissions).
+
+That said, `diff-match-patch` is easily accessible, well-proven, and provides a easy way to compute differences between two similar stings.
 
 ## License
 
-This work is licensed under the MIT 
+This work (`compare_verses.py`) is licensed under the [MIT license](LICENSE).
 
 * Google's diff-match-patch is used under the Apache License 2.0. The copy in this repo has been modified according to [these instructions](https://github.com/google/diff-match-patch/wiki/Line-or-Word-Diffs).
 * SBLGNT is available under a CC-BY 4.0 license from [Logos Bible Software](https://github.com/LogosBible/SBLGNT).
@@ -50,3 +56,4 @@ In this view:
 * `1` indicates words in the `compare` edition but not in the `source` edition.
 
 Note that the compared texts have been normalized for case (lower-case) and accents have been removed.
+
