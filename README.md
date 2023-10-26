@@ -8,7 +8,7 @@ Note that the algorithm used in `diff-match-patch` essentially states the minima
 
 This is slightly different than variation units one finds in a standard Greek NT, where there are additions, omissions, differences, and word order differences. The output here is stated solely in terms of plusses (additions) and minuses (omissions).
 
-That said, `diff-match-patch` is easily accessible, well-proven, and provides a easy way to compute differences between two similar stings.
+That said, `diff-match-patch` is easily accessible, well-proven, and provides a easy way to compute differences between two similar strings.
 
 ## License
 
