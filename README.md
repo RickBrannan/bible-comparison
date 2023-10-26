@@ -22,6 +22,13 @@ This work (`compare_verses.py`) is licensed under the [MIT license](LICENSE).
 * SBLGNT is available under a CC-BY 4.0 license from [Logos Bible Software](https://github.com/LogosBible/SBLGNT).
 * Nestle 1904 is available from [Clear Bible (Biblica)](https://github.com/Clear-Bible/macula-greek/Nestle1904).
 
+## Libraries
+
+`compare_verses.py` uses the following libraries, each pip-installable. It is also set up to use `pipenv` (and PyCharm) but YMMV.
+
+* [`biblelib`](https://github.com/Clear-Bible/biblelib) from Sean Boisen (and Clear-Bible/Biblica)
+* [`greek-normalisation`](https://github.com/jtauber/greek-normalisation) from James Tauber
+
 # input format
 
 The input format is a simple tab-delimited file that uses an encoded verse number (supported by biblelib) and Greek text.
