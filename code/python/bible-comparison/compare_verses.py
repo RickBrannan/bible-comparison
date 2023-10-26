@@ -8,13 +8,7 @@ import diff_match_patch as dmp_module
 @dataclasses.dataclass
 class Word:
     identifier: str
-    # alt_id: str
     text: str
-    # strongs: str
-    # gloss: str
-    # gloss2: str
-    # pos: str
-    # morph: str
 
 @dataclasses.dataclass
 class Verse:
@@ -41,7 +35,6 @@ def load_lines(edition, edition_file_name):
             line = line.rstrip('\n')
             # split the line on tabs and stitch things together
             cols = line.split('\t')
-            # bcv = BCVWPID(cols[0])
             bcv = BCVID(cols[0])
             # create the verse object if it doesn't exist
             current_verse_id = bcv.book_ID + bcv.chapter_ID + bcv.verse_ID
