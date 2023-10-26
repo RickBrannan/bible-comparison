@@ -93,8 +93,8 @@ git_dir = "C:/git/RickBrannan/bible-comparison/"
 # both source_gnt_lines and compare_gnt_lines are dict[Verse.identifier, Verse] so verses can be sorted properly
 source_edition = "n1904"
 compare_edition = "sblgnt"
-source_gnt_lines = load_lines(source_edition, "N1904-verses.tsv")
-compare_gnt_lines = load_lines(compare_edition, "sblgnt-verses.tsv")
+source_gnt_lines = load_lines(source_edition, f"{source_edition}-verses.tsv")
+compare_gnt_lines = load_lines(compare_edition, f"{compare_edition}-verses.tsv")
 
 # get keys from source_gnt_lines and sort
 # because I don't know if dicts in python preserve order
