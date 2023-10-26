@@ -1,11 +1,7 @@
-# import os
 import re
-import json as json
 import dataclasses
-import pandas as pd
-from biblelib.word import BCVWPID, BCVID
+from biblelib.word import BCVID
 from greek_normalisation.utils import nfkc, strip_accents
-from greek_normalisation.normalise import Normaliser
 import diff_match_patch as dmp_module
 
 
