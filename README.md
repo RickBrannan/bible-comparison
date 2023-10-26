@@ -10,6 +10,10 @@ This is slightly different than variation units one finds in a standard Greek NT
 
 That said, `diff-match-patch` is easily accessible, well-proven, and provides a easy way to compute differences between two similar strings.
 
+## History
+
+Note that this code was originally developed for other purposes (specifically, migrating the basis of textual alignments from one Greek edition to another), but I found the basics useful so wanted to make a stripped-down version available for others.
+
 ## License
 
 This work (`compare_verses.py`) is licensed under the [MIT license](LICENSE).
